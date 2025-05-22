@@ -5,7 +5,7 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  background: linear-gradient(135deg, #ed42a6 0%, #db0d86 100%);
   color: #fff;
   display: flex;
   justify-content: center;
@@ -25,12 +25,6 @@ body {
   width: 100%;
 }
 
-h1 {
-  margin-bottom: 1.5rem;
-  font-weight: 700;
-  font-size: 2rem;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-}
 
 input[type="text"] {
   width: 100%;
@@ -53,8 +47,8 @@ button {
   font-size: 1.1rem;
   border: none;
   border-radius: 8px;
-  background: #f0a500;
-  color: #222;
+  background: #ffffff;
+  color: #ffffff;
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -62,12 +56,4 @@ button {
 
 button:hover {
   background: #cf8500;
-}
-
-#response {
-  margin-top: 1.25rem;
-  font-weight: 600;
-  font-size: 1.1rem;
-  min-height: 1.5em;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
