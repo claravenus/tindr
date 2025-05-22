@@ -15,3 +15,4 @@ document.getElementById("submitBtn").addEventListener("click", () => {
       document.getElementById("response").textContent = "Erreur serveur.";
     });
 });
+const pdp = document.getElementById("pdp");
