@@ -55,6 +55,11 @@ button {
   border-radius:50%;
 }
 
+.img{
+  width:5%;
+  height:5%;
+}
+
 button:hover {
   background: #cf8500;
 }
