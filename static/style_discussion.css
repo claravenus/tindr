@@ -14,11 +14,19 @@
 }
 
 #pseudo {
-	margin-top : 35px;
+	margin-top: 35px;
 	
 }
 
+#inutile {
+	position: absolute;
+	right: 50px;
+	font-size: 30px;
+}
+
 .ligne{
-	height : 5px;
-	background-color : black;
+	background-color: grey;
+	height: 1px;
+	margin-top: 10px;
+	
 }
