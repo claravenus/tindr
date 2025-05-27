@@ -3,6 +3,152 @@
 <head>
   <meta charset="UTF-8" />
   <title>Tindr</title>
+  <style>    * {
+      box-sizing: border-box;
+    }
+
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ed42a6 0%, #db0d86 100%);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 3rem;
+      border-radius: 16px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      max-width: 600px;
+      width: 100%;
+      position: relative;
+      overflow: visible;
+    }
+
+
+    .carte-tas {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      overflow: visible;
+    }
+
+
+    .carte {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1.5rem;
+      background: rgb(220, 100, 231);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      transition: transform 0.6s ease, opacity 0.6s ease;
+      color: #fff;
+    }
+
+
+    .carte img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 16px;
+      margin-bottom: 1rem;
+    }
+
+
+    .carte h3 {
+      font-size: 2rem;
+      margin: 0.5rem 0;
+    }
+
+
+    .carte p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+
+    .bouton {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+    }
+
+
+    button {
+      padding: 1rem;
+      font-size: 1.5rem;
+      border: none;
+      background: #ffffff;
+      color: #ffffff;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+    }
+
+
+    button:hover {
+      background: #cf8500;
+    }
+
+
+    #match {
+      background: #ff4081;
+    }
+
+
+    #pass {
+      background: #607d8b;
+    }
+
+
+    #notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      border-radius: 12px;
+      padding: 15px 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      display: none;
+      z-index: 9999;
+      max-width: 250px;
+      backdrop-filter: blur(5px);
+    }
+
+
+    .end-message {
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      border-radius: 16px;
+      padding: 2rem;
+      font-size: 1.5rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      animation: fadein 1s ease forwards;
+      margin-top: 100px;
+    }
+
+
+    @keyframes fadein {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+   </style>
   <link rel="stylesheet" href="{{ url_for('static', filename='index2.css') }}" />
 </head>
 <body>
