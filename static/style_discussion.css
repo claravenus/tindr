@@ -27,11 +27,14 @@
 .ligne{
 	background-color: grey;
 	height: 1px;
-	margin-top: 10px;
+
 	
 }
 
 #ligne_bas{
-	margin-bottom : 100px;
+	position: fixed;
+	bottom: 1000px;
 }
-
+#ligne_haut {
+	margin-top: 10px;
+}
