@@ -5,6 +5,10 @@ app = Flask(__name__)
 # Mot de passe en dur
 PASSWORD = "JaiCompris"
 
+# déclaration des variables
+
+liste_match = []
+
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -17,6 +21,11 @@ def check_password():
         return jsonify({"result": "Bravo ! Mot de passe correct."})
     else:
         return jsonify({"result": "Mot de passe incorrect."})
+
+@app.route("/check-match", methods=["POST"])
+def check_match():
+    
+
 
 if __name__ == "__main__":
     app.run(debug=True)
