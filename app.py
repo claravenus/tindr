@@ -12,7 +12,7 @@ profils = [
 
 @app.route("/")
 def index():
-    return render_templates("index.html")
+    return render_template("index.html")
     
 @app.route('/match', methods=['POST'])
 def match():
