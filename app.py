@@ -6,9 +6,9 @@ app = Flask(__name__)
 
 # Simuler des profils "matchables"
 profils = [
-    "Alice", "Léo", "Emma", "Lucas", "Clara",
-    "Nina", "Hugo", "Jade", "Tom", "Sofia",
-    "Axel", "Lina", "Noah", "Eva", "Max"
+    "La mano", "Tyler the creator", "Anyme023", "Ashton Hall", "Brad Pitt",
+    "François Hollande", "Gru", "JP Zadi", "Kaaris", "La menace",
+    "Martin", "RUDASINGWA NGABO", "Sch", "Tibo", "Ninho"
 ]
 
 @app.route("/")
