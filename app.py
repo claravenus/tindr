@@ -10,6 +10,10 @@ profils = [
     "Axel", "Lina", "Noah", "Eva", "Max"
 ]
 
+@app.route("/")
+def index():
+    return render_template("index.html")
+    
 @app.route('/match', methods=['POST'])
 def match():
     data = request.get_json()
