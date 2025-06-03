@@ -3,7 +3,14 @@
 	display: flex;
 	margin-left: 30px ;
 }
+body {
+	background: linear-gradient(135deg, #ed42a6 0%, #db0d86 100%);
+}
 
+.head{
+	background-color: white;
+	width: auto;
+}
 #pdp{
     background-color : blue;
 	width : 75px;
@@ -25,16 +32,50 @@
 }
 
 .ligne{
-	background-color: grey;
+	background-color: black;
 	height: 1px;
-
+	width: 100%;
 	
 }
 
 #ligne_bas{
+	margin-bottom: 10px;
 	position: fixed;
-	bottom: 1000px;
+	bottom: 100px;
+
 }
+
 #ligne_haut {
 	margin-top: 10px;
+}
+
+.bas{
+	position: fixed;
+	bottom: 0px;
+	height: 110px;
+	width: 100%;
+	justify-content: center;
+	text-align: center;
+}
+.choix{
+	display: table;
+	margin: auto;
+}
+.option {
+	width: auto;
+	height: 30px;
+	background-color: white;
+	bottom: 35px;
+	border-radius: 20px;
+	display: flex;
+	float: right;
+	align-items: center;
+	margin: 50px ;
+	position: relative;
+	
+	
+}
+
+#opt1 {
+	
 }
