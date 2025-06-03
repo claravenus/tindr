@@ -3,7 +3,156 @@
 <head>
   <meta charset="UTF-8" />
   <title>Tindr</title>
+  
   <link rel="stylesheet" href="{{ url_for('static', filename='index2.css') }}" />
+  <style>
+        * {
+      box-sizing: border-box;
+    }
+
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ed42a6 0%, #db0d86 100%);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 3rem;
+      border-radius: 16px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      max-width: 600px;
+      width: 100%;
+      position: relative;
+      overflow: visible;
+    }
+
+
+    .carte-tas {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      overflow: visible;
+    }
+
+
+    .carte {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1.5rem;
+      background: rgb(220, 100, 231);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      transition: transform 0.6s ease, opacity 0.6s ease;
+      color: #fff;
+    }
+
+
+    .carte img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 16px;
+      margin-bottom: 1rem;
+    }
+
+
+    .carte h3 {
+      font-size: 2rem;
+      margin: 0.5rem 0;
+    }
+
+
+    .carte p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+
+    .bouton {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+    }
+
+
+    button {
+      padding: 1rem;
+      font-size: 1.5rem;
+      border: none;
+      background: #ffffff;
+      color: #ffffff;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+    }
+
+
+    button:hover {
+      background: #cf8500;
+    }
+
+
+    #match {
+      background: #ff4081;
+    }
+
+
+    #pass {
+      background: #607d8b;
+    }
+
+
+    #notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      border-radius: 12px;
+      padding: 15px 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      display: none;
+      z-index: 9999;
+      max-width: 250px;
+      backdrop-filter: blur(5px);
+    }
+
+
+    .end-message {
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      border-radius: 16px;
+      padding: 2rem;
+      font-size: 1.5rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      animation: fadein 1s ease forwards;
+      margin-top: 100px;
+    }
+
+
+    @keyframes fadein {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+   
+  </style>
 </head>
 <body>
   <div class="container">
@@ -16,9 +165,143 @@
   </div>
 
 
-  <div id="notification">🎉 Match ! Une page de discussion est disponible.</div>
+  <div id="notification">Match ! Une page de discussion est disponible.</div>
+
+  <script>    
+    const profils = [
+      { nom: "Skyler White", age: 47, desc: "i'm the danger", img: "https://i1.sndcdn.com/artworks-YzZn4006Ml2giRrL-73RC4Q-t500x500.jpg"},
+      { nom: "Tyler, the creator", age: 36, desc: "plz buy Chromakopia i need money", img: "https://images-prod.dazeddigital.com/592/azure/dazed-prod/1060/8/1068776.jpg" },
+      { nom: "Anyme023", age: 20, desc: "Il fait tarpain chaud (grrrr)", img: "https://yt3.googleusercontent.com/dDEFIyDIjJwDz4rDzR5uPCkX0vxqZV3BkIqLYOo0toZiwqxRPjchDMt6ue4jQKF4tkqzQ9nV4Q=s900-c-k-c0x00ffffff-no-rj" },
+      { nom: "Ashton Hall", age: 30, desc: "Dispo entre 5h57 et 5h67", img: "https://creatorset.com/cdn/shop/files/Screenshot_2025-03-30_192800.png?v=1743355843" },
+      { nom: "Brad Pitt", age: 61, desc: "g besoin de 800k le kho", img: "https://www.thewomensvoices.fr/wp-content/uploads/2025/01/Capture-decran-2025-01-16-a-15.18.45.png" },
+      { nom: "François Hollande", age: 55, desc: "Be you, be proud of you because yon can be do what we want to do", img: "https://www.abondance.com/wp-content/uploads/2018/07/francois-hollande.jpg" },
+      { nom: "Gru", age: 52, desc: "t'es mignonne petite hehehe", img: "https://media.diariouno.com.ar/p/0bf9d6c1b64d43c1969263255eb7cf4b/adjuntos/298/imagenes/009/232/0009232879/1200x0/smart/gru-mi-villano-favorito-1jpg.jpg" },
+      { nom: "JP Zadi", age: 31, desc: "Amoureuse de la nature", img: "https://media.20min.ch/7/image/2023/12/27/6e049e9e-8e0f-470e-9da7-777e1fe16174.jpeg?auto=format%2Ccompress%2Cenhance&fit=crop&w=1200&h=675&rect=0%2C148%2C1365%2C1194&fp-x=0.49743589743589745&fp-y=0.43212890625&crop=focalpoint&s=3d995aff00f0fa47b4165f4239571136" },
+      { nom: "Kaaris", age: 48, desc: "Je suis dans la cuisine tu bouffes ce que je te prépare", img: "https://images7.memedroid.com/images/UPLOADED895/5a658ed6cbc9b.jpeg" },
+      { nom: "La Menace", age: 27, desc: "T'es crazy ou quoi mec ?!", img: "https://media.vidoleo.com/img/poster-profil/la-menace.jpg" },
+      { nom: "Martin", age: 31, desc: "Dépanneuse qui en a sous le capot", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVXLsj8DcHaUuEK9SrR12925sOhxWlsaB9qw&s" },
+      { nom: "RUDASINGWA NGABO", age: 24, desc: "caresse antillaise", img: "https://ws-public.interpol.int/notices/v1/red/2025-34826/images/63491915" },
+      { nom: "Sch", age: 27, desc: "t'y est ma gâtée le s", img: "https://pbs.twimg.com/media/EmDyoCYXIAAXvwr.jpg" },
+      { nom: "Tibo", age: 26, desc: "j'aime les grosses meules", img: "https://www.ladn.eu/wp-content/uploads/2024/02/tibo-inshape-chut-1200x630.jpg?v=202505" },
+      { nom: "Ni", age: 33, desc: "Algéreinne salade bi-bi-bi-ggie", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTukQglYMvQdhgKFzpRggQ-8GjVCdXvPLBXPg&s" }
+    ];
 
 
-  <script src="{{ url_for('static', filename='index3.js') }}"></script>
+
+
+    const tas = document.getElementById("carte-tas");
+
+
+    const Son1 = new Audio('assets/sounds/match.mp3');
+    const Son2 = new Audio('assets/sounds/pass.mp3');
+
+
+    let actuelle = 0;
+
+
+    function creercarte(profile) {
+      const carte = document.createElement("div");
+      carte.className = "carte";
+      carte.innerHTML = `
+        <img src="${profile.img}" alt="${profile.nom}">
+        <h3>${profile.nom}, ${profile.age}</h3>
+        <p>${profile.desc}</p>
+      `;
+      carte.dataset.nom = profile.nom;
+      return carte;
+    }
+
+
+    async function handleMatch(nom) {
+      const reponse = await fetch("/match", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ user: "Moi", liked: nom })
+      });
+      const result = await reponse.json();
+      if (result.match) {
+        showNotification();
+      }
+    }
+
+
+    function showNotification() {
+      const notif = document.getElementById("notification");
+      notif.style.display = "block";
+      setTimeout(() => {
+        notif.style.display = "none";
+      }, 5000);
+    }
+
+
+    function showEndMessage() {
+      const message = document.createElement("div");
+      message.className = "end-message";
+      message.textContent = "Woah Tous les profils sont vus !";
+      tas.innerHTML = "";
+      tas.appendChild(message);
+    }
+
+
+    function montrerSuivant(direction = null) {
+      const cartes = document.querySelectorAll(".carte");
+      if (cartes.length > 0) {
+        const actuellecarte = cartes[cartes.length - 1];
+        const nom = actuellecarte.dataset.nom;
+
+
+        if (direction === "right") {
+          actuellecarte.style.transform = "translateX(150%) rotate(15deg)";
+          Son1.play()
+          handleMatch(nom);
+        } else if (direction === "left") {
+          actuellecarte.style.transform = "translateX(-150%) rotate(-15deg)";
+          Son2.play()
+        }
+
+
+        actuellecarte.style.opacity = 0;
+
+
+        setTimeout(() => {
+          actuellecarte.remove();
+        }, 600);
+      }
+
+
+      if (actuelle < profils.length) {
+        const cartesuivante = creercarte(profils[actuelle++]);
+        cartesuivante.style.transform = "translateY(0px)";
+        tas.prepend(cartesuivante);
+        setTimeout(() => {
+          cartesuivante.style.transform = "translateY(0px)";
+        }, 50);
+      } else if (document.querySelectorAll(".carte").length === 1) {
+        setTimeout(showEndMessage, 700);
+      }
+    }
+
+
+    document.getElementById("match").addEventListener("click", () => {
+      montrerSuivant("right");
+    });
+
+
+    document.getElementById("pass").addEventListener("click", () => {
+      montrerSuivant("left");
+    });
+
+
+    // Initialiser les 3 premiÃ¨res cartes
+    for (let i = 0; i < 3; i++) {
+      if (actuelle < profils.length) {
+        const carte = creercarte(profils[actuelle++]);
+        tas.prepend(carte);
+      }
+    }
+  </script>
+
+
+  <script src="{{ url_for('static', filename='index2.js') }}"></script>
 </body>
 </html>
